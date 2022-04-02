@@ -1,2 +1,2 @@
 # ReactPractixe
-Practising React JS. 
+Practising React JS with MUI.
