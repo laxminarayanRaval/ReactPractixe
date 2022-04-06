@@ -15,18 +15,25 @@ const Copyright = (props) => {
 }
 
 const SignIn = () => {
-    const theme = createTheme();
+
+  const theme = createTheme();
+
+  const signInHandler = (e) => {
+    e.preventDefault();
+    console.log('signin clicked');
+    localStorage.setItem('isSignedIn', '1');
+  };
+
+  const validateEmail = e => {
+    !e.target.value.includes('@') && console.log(e.target.style); 
+  }
   return (
     <ThemeProvider theme={theme}>
       <Grid container component={"main"} sx={{ height: "100vh" }}>
         <CssBaseline />
         {/* Image */}
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={8}
-          sx={{
+        <Grid item xs={false} sm={4} md={8} 
+        sx={{
             backgroundImage: "url(https://source.unsplash.com/random)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
@@ -47,9 +54,9 @@ const SignIn = () => {
                 <Typography component={'h1'} variant='h3'>
                     Sign IN
                 </Typography>
-                <Box component={'form'} onSubmit={e => { e.preventDefault(); console.log(e.target.value) }} sx={{mx:1}}>
-                    <TextField margin="normal" required fullWidth autoFocus id="email" label="Email Address" name="email" autoComplete="email" />
-                    <TextField margin="normal"  required fullWidth id="password" label='Password' type={'password'} name="password" autoComplete="current-password" />
+                <Box component={'form'} onSubmit={signInHandler} sx={{mx:1}}>
+                    <TextField margin="normal" autoComplete='off' onBlur={validateEmail} required fullWidth autoFocus id="email" label="Email Address" name="email" />
+                    <TextField margin="normal" required fullWidth id="password" label='Password' type={'password'} name="password" autoComplete="current-password" />
                     <FormControlLabel label="Remember me" control={<Checkbox value={'remember'} color='primary' /> } />
                     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2}} >Sign IN</Button>
                     <Grid container>
