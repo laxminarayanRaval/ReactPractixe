@@ -1,20 +1,22 @@
+@import "../../../style/global.css";
+
 .form {
-    text-align: right;
-  }
-  
-  .form button {
-    font: inherit;
-    cursor: pointer;
-    background-color: #8a2b06;
-    border: 1px solid #8a2b06;
-    color: white;
-    padding: 0.25rem 2rem;
-    border-radius: 20px;
-    font-weight: bold;
-  }
-  
-  .form button:hover,
-  .form button:active {
-    background-color: #641e03;
-    border-color: #641e03;
-  }
+  text-align: right;
+}
+
+.form button {
+  font: inherit;
+  cursor: pointer;
+  background-color: var(--brandColor1);
+  border: 1px solid var(--brandColor1);
+  color: var(--whiteColor);
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.form button:hover,
+.form button:active {
+  background-color: var(--brandColor2);
+  border-color: var(--brandColor2);
+}

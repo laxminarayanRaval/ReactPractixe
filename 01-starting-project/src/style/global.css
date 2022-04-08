@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
+/* =========== OLD Colors ============ */
+/* :root {
+  --brandColor1: #8a2b06;
+  --brandColor2: #641e03;
+  --brandColor10: #5a1a01;
+  --brandColor3: #4d1601;
+  --brandColor4: #2c0d00;
+  --brandColor7: #ad5502;
+  --brandColor5: #b94517;
+  --brandColor6: #92320c;
+  --brandColor8: #383838;
+  --brandColor9: #363636;
+  --brandColor11: #ccc;
+  --black25Color: rgba(0, 0, 0, 0.25);
+  --black75Color: rgba(0, 0, 0, 0.75);
+  --whiteColor: white;
+} */
+
+/* =========== Colors ============ */
+:root {
+  --brandColor1: #1a2228;
+  --brandColor2: #2f3d53;
+  --brandColor10: #2c394b;
+  --brandColor3: #072c48;
+  --brandColor4: #082032;
+  --brandColor7: #952b16;
+  --brandColor5: #fc6749;
+  --brandColor6: #FF4C29;
+  --brandColor8: #11121a;
+  --brandColor9: #080a19;
+  --brandColor11: #ccc;
+  --brandColor12: #1b1b1b;
+  --black25Color: rgba(0, 0, 0, 0.25);
+  --black75Color: rgba(0, 0, 0, 0.75);
+  --whiteColor: rgb(254, 255, 231);
+}
