@@ -14,18 +14,39 @@ const Copyright = (props) => {
     )
 }
 
-const SignIn = () => {
+const SignIn = (props) => {
 
   const theme = createTheme();
+
+  const [formData, setFormData] = React.useState({
+    email: '',
+    password:'',
+  });
+
+  const [formError, setFormError] = React.useState({
+    email: false,
+    password: false,
+  });
 
   const signInHandler = (e) => {
     e.preventDefault();
     console.log('signin clicked');
+    props.onAuth(true);
     localStorage.setItem('isSignedIn', '1');
   };
 
-  const validateEmail = e => {
-    !e.target.value.includes('@') && console.log(e.target.style); 
+  const validateData = e => {
+    // console.log("check email: ", e.target.value)
+    switch (e.target.name) {
+      case "email":
+        setFormError(prev => ({...prev, [e.target.name]: !e.target.value.match(/\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+/gi)}));
+        break;
+      case "password":
+        setFormError(prev => ({...prev, [e.target.name]: !e.target.value.match(/[\w!@#$\]><"\',./[%}^{&)*\\|:;.\-+=(]{8,16}/g)})); 
+        break;
+    }
+    setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
+    // console.log("Data", formData, "Error", formError);
   }
   return (
     <ThemeProvider theme={theme}>
@@ -55,8 +76,8 @@ const SignIn = () => {
                     Sign IN
                 </Typography>
                 <Box component={'form'} onSubmit={signInHandler} sx={{mx:1}}>
-                    <TextField margin="normal" autoComplete='off' onBlur={validateEmail} required fullWidth autoFocus id="email" label="Email Address" name="email" />
-                    <TextField margin="normal" required fullWidth id="password" label='Password' type={'password'} name="password" autoComplete="current-password" />
+                    <TextField error={formError.email} margin="normal" autoComplete='off' onKeyUp={validateData} required fullWidth autoFocus id="email" label="Email Address" name="email" />
+                    <TextField error={formError.password} margin="normal" onKeyUp={validateData} required fullWidth id="password" label='Password' type={'password'} name="password" autoComplete="current-password" />
                     <FormControlLabel label="Remember me" control={<Checkbox value={'remember'} color='primary' /> } />
                     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2}} >Sign IN</Button>
                     <Grid container>
