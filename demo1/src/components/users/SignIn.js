@@ -15,6 +15,7 @@ const Copyright = (props) => {
 }
 
 const SignIn = (props) => {
+  props.onAuth(true);
 
   const theme = createTheme();
 
@@ -30,7 +31,7 @@ const SignIn = (props) => {
 
   const signInHandler = (e) => {
     e.preventDefault();
-    console.log('signin clicked');
+    // console.log('signin clicked');
     props.onAuth(true);
     localStorage.setItem('isSignedIn', '1');
   };
