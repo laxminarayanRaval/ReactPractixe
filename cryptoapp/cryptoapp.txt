@@ -4,6 +4,6 @@ Crypto App
 open terminal and create new directory name cryto app and move in
 ----------
 cryptoapp$ npx create-react-app ./
-ctyptoapp$ npm i antd @ant-design/icons react-redux @reduxjs/toolkit axios chart.js react-chartjs-2 html-react-parser millify moment
+ctyptoapp$ npm i react-router-dom axios antd @ant-design/icons react-redux @reduxjs/toolkit chart.js react-chartjs-2 html-react-parser millify moment
 ----------
 
