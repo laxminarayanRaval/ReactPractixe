@@ -16,7 +16,7 @@ const Navbar = () => {
                     <Link to='/'>Crypto App</Link>
                 </Typography.Title>
                 <Button className='menu-control-container'>
-                    1233
+                    =
                 </Button>
             </div>
             <Menu theme='dark'>

@@ -21,7 +21,18 @@ const Cryptocurrencies = (props) => {
   }, [cryptoList, searchTerm])
 
   // console.log(isFetching, cryptos)
-  if (isFetching) return <h2>Loading Data...</h2>
+
+  if (isFetching) return (
+    <Row gutter={[32, 32]} className='crypto-card-container'>
+      {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+        <Col xs={24} sm={12} lg={6} className='crypto-card' key={i}>
+          <Card loading={isFetching} extra={<img className='crypto-image' />} hoverable >
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  )
+
   return (
     <>
       {!props.simplified &&
@@ -31,9 +42,9 @@ const Cryptocurrencies = (props) => {
       }
       <Row gutter={[32, 32]} className='crypto-card-container'>
         {cryptos?.map((currency) => (
-          <Col xs={24} sm={12} lg={6} className='crypto-card' key={currency.id}>
-            <Link to={`/crypto/${currency.id}`}>
-              <Card title={`${currency.rank}. ${currency.name}`} extra={<img className='crypto-image' src={currency.iconUrl} />} hoverable >
+          <Col xs={24} sm={12} lg={6} title={currency.name} className='crypto-card' key={currency.uuid}>
+            <Link to={`/crypto/${currency.uuid}`}>
+              <Card title={`${currency.rank}. ${currency.symbol}`} loading={isFetching} extra={<img className='crypto-image' src={currency.iconUrl} />} hoverable >
                 <p>Price: $ {millify(currency.price)}</p>
                 <p>Market Cap.: {millify(currency.marketCap)}</p>
                 <p>Daily Change: {millify(currency.change)}%</p>
