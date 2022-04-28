@@ -15,7 +15,7 @@ const News = ({ simplified }) => {
 
   const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
   const { data: cryptoCoins } = useGetCryptosQuery(100)
-  console.log(cryptoNews)
+  // console.log(cryptoNews)
 
   if (!cryptoNews?.value) return (
     <Row gutter={[24, 24]}>
@@ -34,8 +34,8 @@ const News = ({ simplified }) => {
     <Row gutter={[24, 24]}>
       {!simplified && (
         <Col span={24}>
-          <Select showSearch className='select-news' placeholder='Select a Crypto' optionFilterProp='children' onChange={setNewsCategory} filterOption={(input, option) => option.children.toLoweCase().indexOf(input.toLowerCase()) >= 0}>
-            <Select.Option value='Cryptocurrency'>Cryptocurrency</Select.Option>
+          <Select showSearch className='select-news' placeholder='Crypto related News' optionFilterProp='children' onChange={setNewsCategory} filterOption={(input, option) => option.children.toLoweCase().indexOf(input.toLowerCase()) >= 0}>
+            <Select.Option value='Cryptocurrency'>All Cryptocurrency</Select.Option>
             {
               cryptoCoins?.data?.coins.map((coin) => (
                 <Select.Option value={coin.name} key={coin.uuid}>{coin.name}</Select.Option>
@@ -53,8 +53,8 @@ const News = ({ simplified }) => {
                   <Title className='news-title' level={5}>{news.name}</Title>
                   <img style={{ maxWidth: '100px', maxHeight: '100px' }} src={news?.image?.thumbnail?.contentUrl || demoImage} alt={news.name} />
                 </div>
-                <p>
-                  {news.description.length > 100 ? `${news.description.substring(0, 100)} ...` : news.description}
+                <p style={{overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: '3', WebkitBoxOrient: 'vertical', textOverflow: 'ellipsis'}}>
+                  {news.description}
                 </p>
                 <div className='provider-container'>
                   <div>

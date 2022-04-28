@@ -7,7 +7,11 @@ const cryptoApiHeaders = {
 
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 
-const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
+const createRequest = (url, extraParams = {}) => ({
+  url,
+  headers: cryptoApiHeaders,
+  ...extraParams,
+});
 
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
@@ -16,10 +20,22 @@ export const cryptoApi = createApi({
     getCryptos: builder.query({
       query: (count) => createRequest(`/coins?limit=${count}`),
     }),
-    getCryptosDetails: builder.query({
-      query: (coinId) => createRequest(`/coin/${coinId}`),
+    getCryptoDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`, {
+        // params: {referenceCurrencyUuid:'6mUvpzCc2lFo' }, // referenceCurrencyUuid: "yhjMzLPhuIDl", '6mUvpzCc2lFo'
+      }),
+    }),
+    getCryptoHistory: builder.query({
+      query: ({ coinId, timePeriod }) =>
+        createRequest(`/coin/${coinId}/history`, {
+          params: { timePeriod }, // referenceCurrencyUuid: "yhjMzLPhuIDl", '6mUvpzCc2lFo'
+        }),
     }),
   }),
 });
 
-export const { useGetCryptosQuery, useGetCryptosDetailsQuery } = cryptoApi;
+export const {
+  useGetCryptosQuery,
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} = cryptoApi;

@@ -20,12 +20,12 @@ const Homepage = () => {
       {isFetching && <h3>Loading</h3>}
 
       {!isFetching &&
-        <Row>
-          <Col span={12}><Statistic title="Total Cryptocurrencies" value={millify(globalStats.total)} /></Col>
-          <Col span={12}><Statistic title="Total Exchange" value={millify(globalStats.totalExchanges)} /></Col>
-          <Col span={12}><Statistic title="Total Market Cap" value={millify(globalStats.totalMarketCap)} /></Col>
-          <Col span={12}><Statistic title="Total 24h Volume" value={millify(globalStats.total24hVolume)} /></Col>
-          <Col span={12}><Statistic title="Total Markets" value={millify(globalStats.totalMarkets)} /></Col>
+        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Col className='gutter-row' xs={12} sm={8} md={6} lg={4}><Statistic title="Total Cryptocurrencies" value={millify(globalStats.total)} /></Col>
+          <Col className='gutter-row' xs={12} sm={8} md={6} lg={4}><Statistic title="Total Exchange" value={millify(globalStats.totalExchanges)} /></Col>
+          <Col className='gutter-row' xs={12} sm={8} md={6} lg={4}><Statistic title="Total Market Cap" value={millify(globalStats.totalMarketCap)} /></Col>
+          <Col className='gutter-row' xs={12} sm={8} md={6} lg={4}><Statistic title="Total 24h Volume" value={millify(globalStats.total24hVolume)} /></Col>
+          <Col className='gutter-row' xs={12} sm={8} md={6} lg={4}><Statistic title="Total Markets" value={millify(globalStats.totalMarkets)} /></Col>
         </Row>}
       <div className='home-heading-container'>
         <Title level={2} className='home-title'>Top 10 Cryptocurrencies in the world</Title>

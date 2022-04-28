@@ -2,37 +2,50 @@ import React from 'react'
 
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
-import { BulbFilled, FundOutlined, HomeOutlined, MoneyCollectOutlined } from '@ant-design/icons' // MenuOutline,
+import { BulbOutlined, FundOutlined, HomeOutlined, MoneyCollectOutlined } from '@ant-design/icons' // MenuOutline,
 
 import icon from '../images/cryptocurrency.png'
 
 const Navbar = () => {
-    
+
+    const items = [
+        {
+            key: 'home',
+            icon: <HomeOutlined />,
+            label: (<Link to='/'>Home</Link>),
+        },
+        {
+            key: 'cryptocurrencies',
+            icon: <FundOutlined />,
+            label: (<Link to='/cryptocurrencies'>Cryptocurrencies</Link>),
+        },
+        // {
+        //     key: 'exchanges', // it became paid that's why
+        //     icon: <MoneyCollectOutlined />,
+        //     label: (<Link to='/exchanges'>Exchanges</Link>),
+        // },
+        {
+            key: 'news',
+            icon: <BulbOutlined />,
+            label: (<Link to='/news'>News</Link>),
+        },
+    ]
+
     return (
         <div className='nav-container'>
             <div className='logo-container'>
                 <Avatar src={icon} size='large' />
                 <Typography.Title level={2} className='logo'>
-                    <Link to='/'>Crypto App</Link>
+                    <Link to='/'>Crypto-App</Link>
                 </Typography.Title>
-                <Button className='menu-control-container'>
-                    =
-                </Button>
             </div>
-            <Menu theme='dark'>
-                <Menu.Item key={'ab1'} icon={<HomeOutlined />}>
-                    <Link to='/'>Home</Link>
-                </Menu.Item>
-                <Menu.Item key={'ab2'} icon={<FundOutlined />}>
-                    <Link to='/cryptocurrencies'>Cryptocurrencies</Link>
-                </Menu.Item>
-                <Menu.Item key={'ab3'} icon={<MoneyCollectOutlined />}>
-                    <Link to='/exchanges'>Exchanges</Link>
-                </Menu.Item>
-                <Menu.Item key={'ab4'} icon={<BulbFilled />}>
-                    <Link to='/news'>News</Link>
-                </Menu.Item>
-            </Menu>
+            <div className='menu'>
+                <Menu mode="horizontal" defaultSelectedKeys='home' >
+                    {items.map((ele) => (
+                        <Menu.Item key={ele.key} icon={ele.icon} >{ele.label}</Menu.Item>
+                    ))}
+                </Menu>
+            </div>
         </div>
     )
 }

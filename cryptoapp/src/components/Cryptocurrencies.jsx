@@ -42,8 +42,8 @@ const Cryptocurrencies = (props) => {
       }
       <Row gutter={[32, 32]} className='crypto-card-container'>
         {cryptos?.map((currency) => (
-          <Col xs={24} sm={12} lg={6} title={currency.name} className='crypto-card' key={currency.uuid}>
-            <Link to={`/crypto/${currency.uuid}`}>
+          <Col xs={24} sm={12} md={6} lg={4} title={currency.name} className='crypto-card' key={currency.uuid}>
+            <Link to={`/crypto/${currency.name}/${currency.uuid}`}>
               <Card title={`${currency.rank}. ${currency.symbol}`} loading={isFetching} extra={<img className='crypto-image' src={currency.iconUrl} />} hoverable >
                 <p>Price: $ {millify(currency.price)}</p>
                 <p>Market Cap.: {millify(currency.marketCap)}</p>
