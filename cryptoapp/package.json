@@ -2,6 +2,10 @@
   "name": "cryptoapp",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "laxminarayan.raval01+crypto.app@gmail.com",
+    "name": "Laxminarayan Raval"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@babel/plugin-transform-react-jsx": "^7.17.3",
