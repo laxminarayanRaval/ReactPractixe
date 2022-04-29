@@ -18,17 +18,21 @@ export const cryptoApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      query: (count) => createRequest(`/coins?limit=${count}`),
+      query: (count) =>
+        createRequest(`/coins?limit=${count}`, {
+          params: { referenceCurrencyUuid: "6mUvpzCc2lFo" }, // referenceCurrencyUuid: "yhjMzLPhuIDl", '6mUvpzCc2lFo'
+        }),
     }),
     getCryptoDetails: builder.query({
-      query: (coinId) => createRequest(`/coin/${coinId}`, {
-        // params: {referenceCurrencyUuid:'6mUvpzCc2lFo' }, // referenceCurrencyUuid: "yhjMzLPhuIDl", '6mUvpzCc2lFo'
-      }),
+      query: (coinId) =>
+        createRequest(`/coin/${coinId}`, {
+          params: { referenceCurrencyUuid: "6mUvpzCc2lFo" }, // referenceCurrencyUuid: "yhjMzLPhuIDl", '6mUvpzCc2lFo'
+        }),
     }),
     getCryptoHistory: builder.query({
       query: ({ coinId, timePeriod }) =>
         createRequest(`/coin/${coinId}/history`, {
-          params: { timePeriod }, // referenceCurrencyUuid: "yhjMzLPhuIDl", '6mUvpzCc2lFo'
+          params: { timePeriod, referenceCurrencyUuid: "6mUvpzCc2lFo" }, // referenceCurrencyUuid: "yhjMzLPhuIDl", // '6mUvpzCc2lFo'
         }),
     }),
   }),

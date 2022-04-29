@@ -28,7 +28,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinColor }) => {
         labels: coinTimestamp,
         datasets: [
             {
-                label: `Price in USD`,
+                label: `Price in INR`,
                 data: coinPrice,
                 fill: false,
                 backgroundColor: coinColor,
@@ -66,7 +66,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinColor }) => {
                 <Title level={2} className='chart-title'> {coinName} Price Chart</Title>
                 <Col className='price-container'>
                     <Title level={5} title='Price Change' className='price-change'>{coinHistory?.data?.change} %</Title>
-                    <Title level={2} className='current-price'>Current {coinName} Price: $ {currentPrice}</Title>
+                    <Title level={2} className='current-price'>Current {coinName} Price: ₹ {currentPrice}</Title>
                 </Col>
             </Row>
             {/* <Line data={data} /> */}

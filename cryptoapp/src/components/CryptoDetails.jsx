@@ -45,25 +45,25 @@ const CryptoDetails = () => {
 
   const stats = [
     {
-      title: "Price to USD",
-      value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`,
+      title: "Price to INR",
+      value: `₹ ${cryptoDetails?.price && millify(cryptoDetails?.price, {precision: 2})}`,
       icon: <DollarCircleOutlined />,
     },
     { title: "Rank", value: cryptoDetails?.rank, icon: <NumberOutlined /> },
     {
       title: "24h Volume",
-      value: `$ ${cryptoDetails['24hVolume'] && millify(cryptoDetails['24hVolume'])}`,
+      value: `₹ ${cryptoDetails['24hVolume'] && millify(cryptoDetails['24hVolume'])}`,
       icon: <ThunderboltOutlined />,
     },
     {
       title: "Market Cap",
-      value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)
+      value: `₹ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)
         }`,
       icon: <DollarCircleOutlined />,
     },
     {
       title: "All-time-high(daily avg.)",
-      value: `$ ${cryptoDetails?.allTimeHigh?.price &&
+      value: `₹ ${cryptoDetails?.allTimeHigh?.price &&
         millify(cryptoDetails?.allTimeHigh?.price)
         }`,
       icon: <TrophyOutlined />,
@@ -92,13 +92,13 @@ const CryptoDetails = () => {
     },
     {
       title: "Total Supply",
-      value: `$ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)
+      value: `₹ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)
         }`,
       icon: <ExclamationCircleOutlined />,
     },
     {
       title: "Circulating Supply",
-      value: `$ ${cryptoDetails?.supply?.circulating &&
+      value: `₹ ${cryptoDetails?.supply?.circulating &&
         millify(cryptoDetails?.supply?.circulating)
         }`,
       icon: <ExclamationCircleOutlined />,
@@ -131,14 +131,13 @@ const CryptoDetails = () => {
 
   return (
     <Row className="coin-detail-container" style={{ ...styl }}>
-      <LogoLoading />
       <div style={{ backdropFilter: 'blur(1px)',backgroundColor: 'rgba(255,255,255,0.75)' }}>
         <Col className="coin-heading-container" >
           <Title level={2} className="coin-name">
             {cryptoDetails.name} ({cryptoDetails.symbol}) Price
           </Title>
           <p>
-            {cryptoDetails.name} live price in US Dollar (USD). View value
+            {cryptoDetails.name} live price in India Rupee (INR)). View value
             statistics, market cap and supply.
           </p>
         </Col>

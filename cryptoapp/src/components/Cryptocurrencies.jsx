@@ -37,7 +37,7 @@ const Cryptocurrencies = (props) => {
           <Col xs={24} sm={12} md={6} lg={4} title={currency.name} className='crypto-card' key={currency.uuid}>
             <Link to={`/crypto/${currency.name}/${currency.uuid}`}>
               <Card title={`${currency.rank}. ${currency.symbol}`} loading={isFetching} extra={<img className='crypto-image' src={currency.iconUrl} />} hoverable >
-                <p>Price: $ {millify(currency.price)}</p>
+                <p>Price: ₹ {millify(currency.price, {precision: 2})}</p>
                 <p>Market Cap.: {millify(currency.marketCap)}</p>
                 <p>Daily Change: {millify(currency.change)}%</p>
               </Card>
