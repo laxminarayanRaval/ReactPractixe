@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, Col, Input, Row } from 'antd'
 
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import CryptoLoading from './lazy/CryptoLoading'
 
 const Cryptocurrencies = (props) => {
   const count = props.simplified ? 10 : 100;
@@ -22,16 +23,7 @@ const Cryptocurrencies = (props) => {
 
   // console.log(isFetching, cryptos)
 
-  if (isFetching) return (
-    <Row gutter={[32, 32]} className='crypto-card-container'>
-      {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-        <Col xs={24} sm={12} lg={6} className='crypto-card' key={i}>
-          <Card loading={isFetching} extra={<img className='crypto-image' />} hoverable >
-          </Card>
-        </Col>
-      ))}
-    </Row>
-  )
+  if (isFetching) return ( <CryptoLoading /> )
 
   return (
     <>

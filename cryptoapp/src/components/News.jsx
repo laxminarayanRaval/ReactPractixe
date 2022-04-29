@@ -7,6 +7,8 @@ const { Title, Text } = Typography
 
 import moment from 'moment'
 
+import NewsLoading from './lazy/NewsLoading'
+
 const demoImage = 'https://images.indianexpress.com/2021/11/BITCOIN-CRYPTO-CURRENCY.jpg'
 
 const News = ({ simplified }) => {
@@ -17,24 +19,13 @@ const News = ({ simplified }) => {
   const { data: cryptoCoins } = useGetCryptosQuery(100)
   // console.log(cryptoNews)
 
-  if (!cryptoNews?.value) return (
-    <Row gutter={[24, 24]}>
-      {
-        [1, 2, 3, 4, 5, 6].map((j) => (
-          <Col xs={24} sm={12} lg={8} key={j} >
-            <Card hoverable loading={true} className='news-card' >
-            </Card>
-          </Col>
-        ))
-      }
-    </Row>
-  )
+  if (!cryptoNews?.value) return ( <NewsLoading /> )
 
   return (
     <Row gutter={[24, 24]}>
       {!simplified && (
         <Col span={24}>
-          <Select showSearch className='select-news' placeholder='Crypto related News' optionFilterProp='children' onChange={setNewsCategory} filterOption={(input, option) => option.children.toLoweCase().indexOf(input.toLowerCase()) >= 0}>
+          <Select className='select-news' placeholder='Crypto related News' optionFilterProp='children' onChange={setNewsCategory} filterOption={(input, option) => option.children.toLoweCase().indexOf(input.toLowerCase()) >= 0}>
             <Select.Option value='Cryptocurrency'>All Cryptocurrency</Select.Option>
             {
               cryptoCoins?.data?.coins.map((coin) => (

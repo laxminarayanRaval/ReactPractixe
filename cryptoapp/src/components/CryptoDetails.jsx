@@ -19,7 +19,8 @@ import {
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoApi";
 
 import LineChart from "./LineChart";
-// import Loader from './Loader';
+import LogoLoading from "./lazy/LogoLoading";
+
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -38,7 +39,7 @@ const CryptoDetails = () => {
   const cryptoDetails = coinData?.data?.coin;
 
 
-  if (isFetching) return <h1>Loading</h1>; //return <Loader />;
+  if (isFetching) return <LogoLoading /> // <h1>Loading</h1>;
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -106,14 +107,14 @@ const CryptoDetails = () => {
   // console.log(coinId, isFetching, coinHistory);
 
   const styl = {
-    background: `url(${cryptoDetails.iconUrl}) no-repeat top right fixed`,
+    background: `url(${cryptoDetails.iconUrl}) no-repeat center center fixed`,
     backgroundBlendMode: 'darken',
-    backgroundSize: '13%',
+    backgroundSize: '50%',
     // padding: '30px',
-    margin: '0px',
-    // backgroundColor: 'rgba(0,21,41,0)',
+    margin: '0px 0px 0px 0px',
+    // backgroundColor: 'rgba(255,255,255,1)',
     // borderTop: `15px solid ${cryptoDetails.color}`,
-    fontFamily: 'system-ui',
+    // fontFamily: 'system-ui',
     // fontSize: 'large', fontVariant: 'petite-caps', fontWeight: '400',
   }
 
@@ -129,8 +130,9 @@ const CryptoDetails = () => {
   // )
 
   return (
-    <Col className="coin-detail-container" style={{ ...styl }}>
-      <div style={{ backdropFilter: 'blur(5px)', }}>
+    <Row className="coin-detail-container" style={{ ...styl }}>
+      <LogoLoading />
+      <div style={{ backdropFilter: 'blur(1px)',backgroundColor: 'rgba(255,255,255,0.75)' }}>
         <Col className="coin-heading-container" >
           <Title level={2} className="coin-name">
             {cryptoDetails.name} ({cryptoDetails.symbol}) Price
@@ -140,12 +142,6 @@ const CryptoDetails = () => {
             statistics, market cap and supply.
           </p>
         </Col>
-        <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)} >
-          {time.map((date) => (
-            <Option key={date}>{date}</Option>
-          ))}
-        </Select>
-        <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} coinColor={cryptoDetails.color} />
         <Col className="stats-container">
           <Col className="coin-value-statistics">
             <Col className="coin-value-statistics-heading">
@@ -188,6 +184,14 @@ const CryptoDetails = () => {
             ))}
           </Col>
         </Col>
+        <Col>
+        <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)} >
+          {time.map((date) => (
+            <Option key={date}>{date}</Option>
+          ))}
+        </Select>
+        <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} coinColor={cryptoDetails.color} />
+        </Col>
         <Col className="coin-desc-link">
           <Row className="coin-desc">
             <Title level={3} className="">
@@ -212,7 +216,7 @@ const CryptoDetails = () => {
           </Col>
         </Col>
       </div>
-    </Col>
+    </Row>
   );
 };
 

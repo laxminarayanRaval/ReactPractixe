@@ -1,12 +1,12 @@
 :root {
-  --text-primary: #000;
-  --bgPrimary: #376aad;
-  --bgSecondary: #e5e2e1;
+  --text-primary: #1c1c1c;
+  --textSecondary: #ECDBBA;
+  --bgPrimary: #ff5d44;
+  --bgSecondary: #d5f9ff;
   --pink: #02366b;
-  --light-blue: #fff2e6;
+  --light-blue: #e6e6ff;
   --border: #bfd1ae;
   --bgNav: #003241;
-  --menu: #003241;
 }
 
 * {
@@ -29,13 +29,18 @@ a:hover {
 }
 
 .navbar {
-  flex: 0.2;
+  flex: 0.5;
+  position: fixed;
+  width: 100vw;
+  top: 0px;
+  z-index: 11;
   /* background-color: #364e05; */
 }
 
 .main {
   flex: 0.75;
-  width: 100%;
+  width: 100vw;
+  margin-top: 10vh;
 }
 .routes {
   padding: 25px;
@@ -59,17 +64,24 @@ a:hover {
   /* align-items: center; */
   /* width: 100%; */
 }
+.logo-container h2.ant-typography {
+  font-size: xx-large !important;
+}
 .ant-menu-item:hover{
-  color: var(--menu) !important;
+  color: var(--bgNav) !important;
 }
 
-.ant-menu-item-selected::after,.ant-menu-item:hover::after{
-  border-bottom: 4px solid var(--menu) !important;
-  border-radius: 2px;
+.ant-menu-item-selected::after{
+  border-bottom: 6px solid var(--bgNav) !important;
+}
+
+.ant-menu-item:hover::after{
+  border: 3px solid var(--bgNav) !important;
+  /* border-radius: 3px; */
 }
 
 .ant-menu-item-selected a,.ant-menu-item-selected {
-  color: var(--menu) !important; 
+  color: var(--bgNav) !important; 
 }
 
 
@@ -78,7 +90,7 @@ a:hover {
   margin: 0 0 0 15px !important;
 }
 .logo a {
-  color: rgb(255, 255, 255) !important;
+  color: var(--textSecondary) !important;
 }
 .menu-control-container {
   display: none !important;
@@ -91,7 +103,7 @@ a:hover {
 }
 
 .loader {
-  height: 81vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,14 +145,14 @@ a:hover {
   }
 
   .nav-container {
-    height: 9vh;
+    height: 11vh;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     /* position: fixed; */
-    /* z-index: 100; */
+    z-index: 100;
     /* background-color: var(--bgSecondary); */
   }
 
@@ -338,7 +350,7 @@ a:hover {
   height: 100px;
 }
 .news-card p {
-  color: black;
+  color: var(--text-primary) !important;
   margin: 10px 0px !important;
 }
 .provider-container {
@@ -407,4 +419,25 @@ a:hover {
   flex-direction: column;
   padding: 20px;
   align-items: center;
+}
+
+.loader-rotate img {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  height: 25%;
+  border-radius: 50%;
+  animation: rotation 6s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotateY(359deg);
+  }
 }

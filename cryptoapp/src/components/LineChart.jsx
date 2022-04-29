@@ -36,9 +36,29 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinColor }) => {
             },
         ],
     }
+    const options = {
+        // responsive: true,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: 'rgb(255, 99, 132)'
+                }
+            }
+        },
+        scales: {
+            x: {
+                display: false
+            },
+            y: {
+                ticks: {
+                    display: false
+                }
+            }
+        }
+    }
 
-
-    console.log(coinHistory, coinPrice, coinTimestamp)
+    // console.log(coinHistory, coinPrice, coinTimestamp)
 
     return (
         <>
@@ -50,7 +70,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinColor }) => {
                 </Col>
             </Row>
             {/* <Line data={data} /> */}
-            <Chart type='line' data={data}/>
+            <Chart type='line' options={options} data={data} />
         </>
     )
 }
