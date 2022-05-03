@@ -8,7 +8,7 @@
 
 Practising React JS with MUI.
 
-- ReactMealsFoodOrderApp : app with pure css and hooks (no MUI, Redux 😅) [code](https://github.com/laxminarayanRaval/ReactPractixe/tree/main/ReactMealsFoodOrderApp)
+- ReactMealsFoodOrderApp : app with pure css and hooks (no MUI, Redux 😅) [live on netlify](https://lx-meals-foodorderapp.netlify.app/) [code](https://github.com/laxminarayanRaval/ReactPractixe/tree/main/ReactMealsFoodOrderApp)
 - cryptoapp : app with [AntD](https://ant.design/), [React Router](https://reactrouter.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [RapidAPI](https://rapidapi.com/). [live on netlify](https://lx-crypto-app.netlify.app/) [code](https://github.com/laxminarayanRaval/ReactPractixe/tree/main/cryptoapp)
 
 ![Laxminarayan Raval](https://img.shields.io/github/followers/laxminarayanRaval.svg?style=social&label=Follow%20Now&maxAge=2592000)
