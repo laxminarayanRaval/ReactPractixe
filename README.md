@@ -1,9 +1,7 @@
 # ReactPractixe
 
-[https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB]
-
-
-https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+[Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white
 https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white
