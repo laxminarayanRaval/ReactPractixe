@@ -11,17 +11,18 @@ body {
 
 .App-header {
   background-color: #2e2e2e;
+  color: #e6e6e6;
   height: 40vh;
   padding: 20px;
-  color: #e6e6e6;
 }
 
 button {
   color: #2e2e2e;
   font-size: xx-large;
   font-weight: 700;
-  min-width: 5%;
-  margin-left: 1%;
+  min-width: 15vh;
+  border-radius: 25%;
+  margin: 1%;
 }
 
 .App-intro {
@@ -32,5 +33,25 @@ button {
 .count {
   font-weight: bolder;
   margin: 0;
-  font-size: 8vw;
+  font-size: 10vh;
+}
+
+.auth {
+  min-height: 49vh;
+  padding: 13%;
+}
+
+.auth input {
+  margin: 1%;
+  padding: 1%;
+  font-size: larger;
+  font-weight: 700;
+  font-variant: small-caps;
+  border-radius: 25%;
+  color: #2e2e2e;
+}
+
+.auth input:focus {
+  background-color: #2e2e2e;
+  color: #e6e6e6;
 }

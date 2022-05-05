@@ -6,8 +6,8 @@ import CountAction from './CountAction'
 
 const CounterResult = () => {
 
-    const counter = useSelector(state => state.counter)
-    const hide = useSelector(state => state.isHidden)
+    const counter = useSelector(state => state.counter.counter)
+    const hide = useSelector(state => state.counter.isHidden)
 
     return (
         <>
