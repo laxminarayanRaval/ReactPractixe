@@ -1,6 +1,10 @@
 {
   "name": "test-app",
   "version": "0.1.0",
+  "author": {
+    "email": "ln.raval01+testapp@gmail.com",
+    "name": "Laxminarayan Raval"
+  },
   "private": true,
   "dependencies": {
     "react": "^18.1.0",
