@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: space-evenly; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -49,11 +49,42 @@
   align-items: center;
 }
 
-.todoMaker input, input:focus{
+.todoMaker input,
+input:focus {
   outline: none;
   border-width: 0px;
 }
 
-.todoMaker .material-symbols-outlined {
+.material-symbols-outlined {
   cursor: pointer;
+  font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 200, "opsz" 48;
+}
+.todoList {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.todoListItem {
+  min-width: 75vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #282c34;
+  min-height: fit-content;
+  border-radius: 10px;
+  color: #282c34;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.tem {
+  display: flex;
+  flex-direction: column;
+}
+
+.tem h2, .tem h6{
+  margin: 0%;
+  font-weight: 200;
 }

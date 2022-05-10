@@ -1,21 +1,22 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { todoTaskActions } from "../store/todoTask";
 
 type Props = {};
 
 const TodoMaker = (props: Props) => {
-  const initialState = {
-    text: "",
-    isDone: false,
-  };
-  const [todoItem, setTodoItem] = React.useState(initialState);
+  const [todoItem, setTodoItem] = React.useState("");
+
+  const dispatch = useDispatch();
 
   const updateTodo = (txt: string) => {
-    setTodoItem({ ...todoItem, text: txt });
+    setTodoItem(txt);
   };
 
   const addTask = () => {
-    console.log(todoItem.text, todoItem.isDone);
-    setTodoItem(initialState);
+    console.log(todoItem);
+    dispatch(todoTaskActions.add(todoItem));
+    setTodoItem("");
   };
 
   return (
@@ -24,7 +25,7 @@ const TodoMaker = (props: Props) => {
         name="todoText"
         style={{ fontSize: "x-large" }}
         placeholder="Todo Task"
-        value={todoItem.text}
+        value={todoItem}
         onChange={(e) => updateTodo(e.target.value)}
       />
       <span onClick={addTask} className="material-symbols-outlined">
