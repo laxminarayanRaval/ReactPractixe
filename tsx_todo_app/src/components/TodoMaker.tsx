@@ -13,25 +13,27 @@ const TodoMaker = (props: Props) => {
     setTodoItem(txt);
   };
 
-  const addTask = () => {
-    console.log(todoItem);
+  const addTask = (e:any) => {
+    e.preventDefault();
+    // console.log(todoItem);
     dispatch(todoTaskActions.add(todoItem));
     setTodoItem("");
   };
 
   return (
-    <div className="todoMaker">
+    <form onSubmit={addTask} className="todoMaker">
       <input
+      autoComplete="off"
         name="todoText"
         style={{ fontSize: "x-large" }}
         placeholder="Todo Task"
         value={todoItem}
         onChange={(e) => updateTodo(e.target.value)}
       />
-      <span onClick={addTask} className="material-symbols-outlined">
+      <button type="submit" title="add task" className="material-symbols-outlined">
         add
-      </span>
-    </div>
+      </button>
+    </form>
   );
 };
 

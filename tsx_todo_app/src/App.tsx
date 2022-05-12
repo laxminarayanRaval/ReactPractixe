@@ -1,8 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import TodoMaker from "./components/TodoMaker";
 import TodoList from "./components/TodoList";
+import RemovedTasksList from "./components/RemovedTasksList";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <h1>Advance ToDo App</h1>
         <TodoMaker />
         <TodoList />
+        <RemovedTasksList />
       </header>
     </div>
   );
